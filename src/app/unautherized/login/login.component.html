@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="container">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Sign In</h5>
+
+          <!--UserName-->
+          <div class="form-group row">
+            <div class="col-sm-4 text-left">
+              <label class="control-label" for="CreationPer">User Name</label>
+            </div>
+            <div class="col-sm-8 text-left">
+              <input type="text" class="form-control" id="UserName" [(ngModel)]="UserName" placeholder="Enter User Name"
+                name="UserName" required>
+            </div>
+          </div>
+
+          <!--Password-->
+          <div class="form-group row">
+            <div class="col-sm-4 text-left">
+              <label class="control-label" for="CreationPer">Password</label>
+            </div>
+            <div class="col-sm-8 text-left">
+              <input type="text" class="form-control" id="password" [(ngModel)]="Password" placeholder="Enter Password"
+                name="password" required>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-group row">
+            <div class="container">
+              <div class="d-flex flex-row-reverse">
+                <button class="btn btn-outline-secondary" type="button" (click)="checkCredentials()">Submit</button>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-text"><small class="text-muted">Want to join?? <a class="nav-link" routerLink="/SingUp">SingUp here</a> </small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+
+</div>

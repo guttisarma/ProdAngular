@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-5">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" (click)="gotoNew()" class="btn btn-link">New</button>
+        <button type="button" (click)="gotoList()" class="btn btn-link">List</button>
+        <button type="button" (click)="gotoAssign()" class="btn btn-link">Assign</button>
+        <button type="button" (click)="gotoConvert()" class="btn btn-link">Convert</button>
+        <button type="button" class="btn btn-link">Export</button>
+        <button type="button" class="btn btn-link">Import</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:rgb(247, 220, 255)">
+    </div>
+    <!-- <div class="col-sm-4"></div> -->
+    <div class="col-sm-9 ml-auto">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

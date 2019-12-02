@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="container">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">User Details</h5>
+
+          <!--FirstName-->
+          <div class="form-group row">
+            <div class="col-sm-4 text-right">
+              <label class="control-label" for="firstname">First Name</label>
+            </div>
+            <div class="col-sm-8 text-right">
+              <input type="text" class="form-control" id="FirstName" [(ngModel)]="FirstName"
+                placeholder="Enter First Name" name="FirstName" required>
+            </div>
+          </div>
+
+          <!--LastName-->
+          <div class="form-group row">
+            <div class="col-sm-4 text-right">
+              <label class="control-label" for="Lastname">Last Name</label>
+            </div>
+            <div class="col-sm-8 text-right">
+              <input type="text" class="form-control" id="LastName" [(ngModel)]="LastName" placeholder="Enter Last Name"
+                name="LastName" required>
+            </div>
+          </div>
+
+          <!--Date of Birth-->
+          <div class="form-group row">
+            <div class="col-sm-4 text-right">
+              <label class="control-label" for="dateofbirth">Date of Birth:</label>
+            </div>
+            <div class="col-sm-8  text-right">
+              <form class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input class="form-control" type="datetime" value="yyyy-MM-dd" id="example-datetime-local-input">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Email/Phone -->
+          <div class="form-group row">
+            <div class="form-group row">
+              <div class="col-sm-10 text-right">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="address" id="phonenumber" [value]="true"
+                    [(ngModel)]="checkCommAdd" checked>
+                  <label class="form-check-label" for="inlineRadio1">Phone No</label>
+                </div>
+              </div>
+              <div class="col-sm-2 text-center">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="address" id="email" [value]="false"
+                    [(ngModel)]="checkCommAdd">
+                  <label class="form-check-label" for="inlineRadio2">Email</label>
+                </div>
+              </div>
+            </div>
+            <input type="text" class="form-control" id="phonenumber" [(ngModel)]="address.strPhone" *ngIf="checkCommAdd"
+              placeholder="Enter Phone Number" name="phonenumbername" required>
+            <input type="text" class="form-control" id="email" [(ngModel)]="address.strEmail" *ngIf="!checkCommAdd"
+              placeholder="Enter Email Number" name="emailname" required>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-group row">
+            <div class="container">
+              <div class="d-flex flex-row-reverse">
+                <button class="btn btn-outline-secondary" type="button" (click)="checkCredentials()">Submit</button>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
