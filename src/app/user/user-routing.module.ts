@@ -4,20 +4,37 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserMgmtComponent } from './user-mgmt/user-mgmt.component';
+import { UserSettingComponent } from './user-setting/user-setting.component';
+import { UserBillingComponent } from './user-billing/user-billing.component';
 
-const routes: Routes = [
-
+const UserRoutes: Routes = [
   {
-    path: 'UserManagement', component: UserMgmtComponent, children: [
-      { path: 'detail/:id', component: UserListComponent },
-      { path: 'heroes', component: UserDetailComponent }
+    path: 'UserManagement',
+    component: UserMgmtComponent,
+    children: [
+      {
+        path: 'Detail', component: UserDetailComponent,
+        outlet: 'UserMgmt'
+      },
+      {
+        path: 'Settings', component: UserSettingComponent,
+        outlet: 'UserMgmt'
+      },
+      {
+        path: 'Billing', component: UserBillingComponent,
+        outlet: 'UserMgmt'
+      },
+      {
+        path: 'List', component: UserListComponent,
+        outlet: 'UserMgmt'
+      }
     ]
   }
 
 ];
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(UserRoutes)],
   exports: [RouterModule]
 })
 export class UserRoutingModule { }

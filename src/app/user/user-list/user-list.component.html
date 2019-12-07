@@ -1,3 +1,26 @@
-<p>
-  user-list works!
-</p>
+<div class="container">
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Contact Info</th>
+            <th scope="col">Age</th>
+            <th scope="col">Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of lsuser index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{user.Name}}</td>
+            <td> {{user.Code}}</td>
+            <td>{{user.Phone}}</td>
+            <td>{{user.Age}}</td>
+            <td>{{user.Created}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

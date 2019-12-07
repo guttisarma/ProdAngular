@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
+  <!--  <div class="row">
     <div class="col-sm-4">
     </div>
     <div class="col-sm-3"></div>
@@ -13,13 +13,28 @@
         <button type="button" class="btn btn-link">Import</button>
       </div>
     </div>
+  </div> -->
+  <div class="nav-body">
+
   </div>
   <div class="row">
-    <div class="col-sm-3" style="background-color:rgb(247, 220, 255)">
+    <div class="col-sm-3">
+      <ul class="list-group">
+        <li class="list-group-item"> <a class="btn btn-link" [routerLink]="[{outlets:{ProdMgmt:['New']}}]">New</a>
+        </li>
+        <li class="list-group-item"> <a class="btn btn-link" [routerLink]="[{outlets:{ProdMgmt:['List']}}]">List</a>
+        </li>
+        <li class="list-group-item"> <a class="btn btn-link" [routerLink]="[{outlets:{ProdMgmt:['Assign']}}]">Assign</a>
+        </li>
+        <li class="list-group-item"> <a class="btn btn-link"
+            [routerLink]="[{outlets:{ProdMgmt:['Convert']}}]">Convert</a>
+        </li>
+      </ul>
     </div>
+
     <!-- <div class="col-sm-4"></div> -->
     <div class="col-sm-9 ml-auto">
-      <router-outlet></router-outlet>
+      <router-outlet name="ProdMgmt"></router-outlet>
     </div>
   </div>
 </div>

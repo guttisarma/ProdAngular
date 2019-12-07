@@ -1,0 +1,49 @@
+<div class="container">
+    <form>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="preferredContact">Select Preferred Contact</label>
+        <div class="col-sm-10">
+          <select class="form-control form-control-sm" id="preferredContact">
+            <option>Email</option>
+            <option>Phone</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="securityQuestion">Select Security Question</label>
+        <div class="col-sm-10">
+          <select class="form-control form-control-sm" id="securityQuestion">
+            <option>What was the house number and street name you lived in as a child?</option>
+            <option>What were the last four digits of your childhood telephone number?</option>
+            <option>What primary school did you attend?</option>
+            <option>In what town or city was your first full time job?</option>
+            <option>In what town or city did you meet your spouse/partner?</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="answer">Answer</label>
+        <div class="col-sm-10">
+          <input type="answer" class="form-control form-control-sm" id="answer" aria-describedby="answerHelp"
+            placeholder="Enter Answer">
+        </div>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="notifyAfterLogin">
+        <div class="col-sm-10">
+          <label class="form-check-label" for="notifyAfterLogin">Notify Last Login Date&Time</label>
+        </div>
+      </div>
+      <div class="container">
+        <div class="form-group row">
+          <div class="container">
+            <div class="d-flex flex-row-reverse">
+              <div class="p-2">
+                <button type="submit" class="btn btn-outline-secondary btn-sm">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

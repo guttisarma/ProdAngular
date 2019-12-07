@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ProdNewComponent } from './prod-new/prod-new.component';
 import { ProdDetailComponent } from './prod-detail/prod-detail.component';
@@ -12,12 +11,12 @@ const ProdRoutes: Routes = [
     path: 'ProductManagement',
     component: ProdMgmtComponent,
     children: [
-      { path: 'NewProduct', component: ProdNewComponent },
-      { path: 'Detail/:id', component: ProdDetailComponent },
-      { path: 'List', component: ProdListComponent },
-      { path: 'ConvertProduct', component: ProdConvComponent },
-      { path: 'New', component: ProdNewComponent },
-      { path: 'AssignProduct', component: ProdAssignComponent }
+      /* { path: 'New', component: ProdNewComponent,outlet: 'ProdMgmt' }, */
+      { path: 'Detail/:id', component: ProdDetailComponent,outlet: 'ProdMgmt' },
+      { path: 'List', component: ProdListComponent,outlet: 'ProdMgmt' },
+      { path: 'Convert', component: ProdConvComponent,outlet: 'ProdMgmt' },
+      { path: 'New', component: ProdNewComponent,outlet: 'ProdMgmt' },
+      { path: 'Assign', component: ProdAssignComponent,outlet: 'ProdMgmt' }
     ]
   }
 

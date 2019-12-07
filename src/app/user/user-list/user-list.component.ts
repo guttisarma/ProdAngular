@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserHelp, DummylsUseruct } from '../HelperUser';
 
 @Component({
   selector: 'app-user-list',
@@ -8,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class UserListComponent implements OnInit {
 
   constructor() { }
+  lsuser: UserHelp[] = [];
 
   ngOnInit() {
+    this.lsuser = DummylsUseruct;
   }
 
 }

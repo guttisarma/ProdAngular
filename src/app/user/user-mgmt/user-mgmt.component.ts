@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserHelp, DummylsUseruct } from '../HelperUser';
 
 @Component({
   selector: 'app-user-mgmt',
@@ -8,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class UserMgmtComponent implements OnInit {
 
   constructor() { }
+  
 
   ngOnInit() {
+    
   }
-
+  
 }
