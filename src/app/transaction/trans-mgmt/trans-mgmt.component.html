@@ -1,3 +1,20 @@
-<p>
-  trans-mgmt works!
-</p>
+<div class="container-fluid">
+  <div class="nav-body">
+
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="list-group">
+        <li class="list-group-item"> <a class="btn btn-link" [routerLink]="[{outlets:{TranMgmt:['New']}}]">New</a>
+        </li>
+        <li class="list-group-item"> <a class="btn btn-link" [routerLink]="[{outlets:{TranMgmt:['List']}}]">List</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <div class="col-sm-4"></div> -->
+    <div class="col-sm-9 ml-auto">
+      <router-outlet name="TranMgmt"></router-outlet>
+    </div>
+  </div>
+</div>

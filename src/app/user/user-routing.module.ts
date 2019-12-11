@@ -6,11 +6,13 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserMgmtComponent } from './user-mgmt/user-mgmt.component';
 import { UserSettingComponent } from './user-setting/user-setting.component';
 import { UserBillingComponent } from './user-billing/user-billing.component';
+import { AuthGuard } from '../unautherized/auth/auth.guard';
 
 const UserRoutes: Routes = [
   {
     path: 'UserManagement',
     component: UserMgmtComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'Detail', component: UserDetailComponent,
