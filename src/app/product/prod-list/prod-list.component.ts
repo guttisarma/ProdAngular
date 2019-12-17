@@ -17,7 +17,8 @@ export class ProdListComponent implements OnInit,OnDestroy {
   constructor(private prodservice:ProductService) { }
 
   ngOnInit() {
-    this.pagenumber = 0;
+    this.pagenumber = 0;   
+    //this.getListFromServer();
     this.lsproduct = Dummylsproduct;
   }
   ngOnDestroy(){
@@ -26,6 +27,9 @@ export class ProdListComponent implements OnInit,OnDestroy {
   /*   this.lsselectedproduct.forEach(p=>{ 
       this.prodservice.selprod.push(p);
     }); */
+  }
+  getListFromServer(){
+    this.prodservice.getCreatedProdList(this.search,this.pagenumber).subscribe(x=>this.lsproduct=x);
   }
   removeItem(prod: any) {
     for (var i = 0; i < this.lsselectedproduct.length; i++) {
@@ -46,13 +50,14 @@ export class ProdListComponent implements OnInit,OnDestroy {
     this.lsselectedproduct.push(prod);
   }
   seachByCodeRName() {
-    console.log('sarma');
+    this.getListFromServer();
   }
   gotoPage() {
-
+    this.getListFromServer();
   }
-  next() {
+  nextPage() {
     this.pagenumber = this.pagenumber + 1;
+    this.getListFromServer();
   }
 
 }

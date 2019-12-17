@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,Validators } from '@angular/forms';
-
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProdHelp } from '../HelperProd';
+import { FormBuilder } from '@angular/forms';
+import { ProductService } from '../product.service';
 @Component({
   selector: 'app-prod-new',
   templateUrl: './prod-new.component.html',
@@ -9,21 +10,30 @@ import { FormControl, FormGroup,Validators } from '@angular/forms';
 })
 export class ProdNewComponent implements OnInit {
 
-  constructor() { }
-  NewProd = new FormGroup({
-    name: new FormControl(Validators.required),
-    code: new FormControl(),
-    quantity: new FormControl(),
-    description: new FormControl(),
+  constructor(private fb: FormBuilder, private productservice: ProductService) { }
+  newprod: ProdHelp = new ProdHelp();
+  NewProdForm = this.fb.group({
+    name: [this.newprod.Name, [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+    code: [this.newprod.Code],
+    quantity: [this.newprod.TQuantity,[Validators.required, Validators.pattern('^([0-9]|[1-9][0-9]|[1-9][0-9][0-9])$')]],
+    description: [this.newprod.Description, [Validators.required, Validators.maxLength(250)]]
   });
 
   ngOnInit() {
+    this.newprod.Code = 'System Generated';
   }
+
+
+
   createNewProduct() {
-    console.log(this.NewProd);
-    this.NewProd.setValue({code:'NewCodeHere',name:'sasd,sd',quantity:44,description:'sdhsdkjkdsf'});
-    this.NewProd.patchValue({code:'NewCodeHere',name:'sasd,sd',quantity:44,description:'sdhsdkjkdsf'});
-    console.log('patch values are updated');
+    console.log(this.NewProdForm.value);
+    /* this.NewProd.setValue({code:'NewCodeHere',name:'sasd,sd',quantity:44,description:'sdhsdkjkdsf'});
+    this.NewProdForm.patchValue({name:'sasd,sd',quantity:44,description:'sdhsdkjkdsf'}); 
+    console.log('patch values are updated');*/
+    if (this.NewProdForm.valid) {
+      this.productservice.saveNewProd(this.newprod).subscribe(syscode => this.newprod.Code=syscode);
+      console.log(this.NewProdForm.value);
+    }
 
   }
 }

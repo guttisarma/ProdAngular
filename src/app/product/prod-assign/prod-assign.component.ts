@@ -2,7 +2,7 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ProdListComponent } from '../prod-list/prod-list.component';
 import { ProductService } from '../product.service';
-import { ProdHelp,ProdAssignHelp } from '../HelperProd';
+import { ProdHelp, ProdAssignHelp, AssignUsertoProd, lsAssignProdhelper } from '../HelperProd';
 import { UserService } from '../../user/user.service';
 import { UserHelp, DummylsUseruct } from '../../user/HelperUser';
 
@@ -16,7 +16,10 @@ export class ProdAssignComponent implements AfterViewInit {
   lsselectproduct: ProdHelp[] = [];
   lsuser: UserHelp[] = [];
   selectuser: UserHelp;
-  myAssignProd:ProdAssignHelp[]=[]
+  myAssignProd: ProdAssignHelp[] = []
+  assignusertoprod: AssignUsertoProd;
+  lsPostProd: lsAssignProdhelper[] = [];
+
 
   constructor(private prodservice: ProductService, private userserive: UserService) { }
   ngAfterViewInit() {
@@ -28,7 +31,7 @@ export class ProdAssignComponent implements AfterViewInit {
       this.lsuser.push(lsu);
     });
     this.lsuser = DummylsUseruct;
-    this.myAssignProd=this.prodservice.getMyAssignment();
+    this.prodservice.getMyAssignment().subscribe(x => this.myAssignProd = x);
   }
   selectedUser(SelUserHelp: UserHelp) {
     this.selectuser = SelUserHelp;
@@ -40,13 +43,24 @@ export class ProdAssignComponent implements AfterViewInit {
       }
     }
   }
-  getInfo():string{
-    if(this.selectuser===undefined)
-    return "Select User :";
+  getInfo(): string {
+    if (this.selectuser === undefined)
+      return "Select User :";
     else
-    return this.selectuser.Name;
+      return this.selectuser.Name;
   }
-  gotoList(){
-    
+  gotoList() {
+
+  }
+  assignProdtoUser() {
+    this.lsselectproduct.forEach(element => {
+      let temp=new lsAssignProdhelper();
+      temp.AssignQuantity=element.AllowedQuantity;
+      temp.ProdHelpPID=element.ProdHelpPID;
+    this.lsPostProd.push(temp );      
+    });
+    this.assignusertoprod.UserPID=this.selectuser.UserHelpPID;
+
+    this.prodservice.assignUserToProd(this.assignusertoprod).subscribe(x => console.log(x));
   }
 }
