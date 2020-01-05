@@ -19,19 +19,20 @@ export class ProdAssignComponent implements AfterViewInit {
   myAssignProd: ProdAssignHelp[] = []
   assignusertoprod: AssignUsertoProd;
   lsPostProd: lsAssignProdhelper[] = [];
-
+  propDirect: string;
 
   constructor(private prodservice: ProductService, private userserive: UserService) { }
   ngAfterViewInit() {
   }
   ngOnInit() {
+    this.propDirect="jagadeesh";
     this.lsselectproduct = this.prodservice.selprod;
     this.prodservice.selprod = undefined;
-    this.userserive.getMyUser().subscribe(lsu => {
+    /* this.userserive.getMyUser().subscribe(lsu => {
       this.lsuser.push(lsu);
-    });
+    }); */
     this.lsuser = DummylsUseruct;
-    this.prodservice.getMyAssignment().subscribe(x => this.myAssignProd = x);
+    //this.prodservice.getMyAssignment().subscribe(x => this.myAssignProd = x);
   }
   selectedUser(SelUserHelp: UserHelp) {
     this.selectuser = SelUserHelp;
@@ -54,12 +55,12 @@ export class ProdAssignComponent implements AfterViewInit {
   }
   assignProdtoUser() {
     this.lsselectproduct.forEach(element => {
-      let temp=new lsAssignProdhelper();
-      temp.AssignQuantity=element.AllowedQuantity;
-      temp.ProdHelpPID=element.ProdHelpPID;
-    this.lsPostProd.push(temp );      
+      let temp = new lsAssignProdhelper();
+      temp.AssignQuantity = element.AllowedQuantity;
+      temp.ProdHelpPID = element.ProdHelpPID;
+      this.lsPostProd.push(temp);
     });
-    this.assignusertoprod.UserPID=this.selectuser.UserHelpPID;
+    this.assignusertoprod.UserPID = this.selectuser.UserHelpPID;
 
     this.prodservice.assignUserToProd(this.assignusertoprod).subscribe(x => console.log(x));
   }

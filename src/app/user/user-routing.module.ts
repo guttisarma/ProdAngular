@@ -12,7 +12,8 @@ const UserRoutes: Routes = [
   {
     path: 'UserManagement',
     component: UserMgmtComponent,
-    canActivate: [AuthGuard],
+    /* Uncomment below lines */
+    /* canActivate: [AuthGuard], */
     children: [
       {
         path: 'Detail', component: UserDetailComponent,

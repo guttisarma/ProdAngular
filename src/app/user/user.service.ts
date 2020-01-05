@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {DummylsUseruct,UserHelp,dummyuser} from './HelperUser';
+import { DummylsUseruct, UserHelp, dummyuser ,AddressHelp,dummyaddress} from './HelperUser';
 import { Observable, of, BehaviorSubject, from } from 'rxjs';
 
 @Injectable({
@@ -9,8 +9,14 @@ export class UserService {
 
   constructor() { }
 
-  getMyUser():Observable<UserHelp>{
-      return dummyuser;
+  getMyUser(): Observable<UserHelp> {
+    return dummyuser;
+  }
+  getUserBasicDetails():Observable<UserHelp> {
+    return dummyuser;
+  }
+  getUserAdderss():Observable<AddressHelp>{
+    return dummyaddress;
   }
 
 }

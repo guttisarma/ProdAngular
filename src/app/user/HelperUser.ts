@@ -15,7 +15,7 @@ export class UserHelp {
     PrefferedContact: string;
 }
 export class AddressHelp {
-    UserHelpPID: number;
+    AddressHelpPID: number;
     Address1: string;
     Address2: string;
     Address3: string;
@@ -42,6 +42,10 @@ export const dummyuser = new Observable<UserHelp>((observer) => {
     observer.complete()
 })
 
+export const dummyaddress=new Observable<AddressHelp>((observer)=>{
+    observer.next({AddressHelpPID:1,Address1:'Dno:2-60',Address2:'BehindSivalayam Street',Address3:"Jandrapet,Chirala,Prakasam",City:"Chirala",State:"Andhra Pradesh",Country:"India"});
+    observer.complete()
+})
 export const DummylsUseruct: UserHelp[] = [
     { UserHelpPID: 1, Name: 'Uma', Code: 'Uma12001', Email: 'Uma@gmail.com', Phone: '9834565450', Created: '24/09/2019', Age: 32, NotifyAfterLogin: true, PrefferedContact:'Email' ,Dob:'12-07-1992',FName: 'Uma',LName: 'Uma'},
     { UserHelpPID: 2, Name: 'Suma', Code: 'Suma12002', Email: 'Suma@outlook.in', Phone: '9223445120', Created: '02/09/2016', Age: 32, NotifyAfterLogin: true, PrefferedContact:'Email' ,Dob:'12-07-1992',FName: 'Uma',LName: 'Uma'},
